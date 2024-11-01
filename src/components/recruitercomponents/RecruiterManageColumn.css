@@ -146,3 +146,24 @@ flex-direction: column;
 justify-content: center;
 flex-shrink: 0;
   }
+
+  .pagination-controls {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 20px;
+  }
+ 
+  .pagination-containers button,.pagination-controls button {
+    padding: 8px 16px;
+    margin: 0 10px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+ 
+  .pagination-containers button:disabled,.pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

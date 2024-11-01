@@ -283,8 +283,17 @@ const [employerPasswordError, setEmployerPasswordError] = useState('');
     if (!companyName.trim()) {
       return 'Company name is required.';
     }
-    if (!/^[a-zA-Z\s]+$/.test(companyName)) {
-      return 'Please enter a valid company name and should not have any numbers and special char.';
+    if (/^\s/.test(companyName)) {
+      return 'Company name should not start with a space.';
+    }
+    if (/\s$/.test(companyName)) {
+      return 'Company name should not end with a space.';
+    }
+    if (/ {2,}/.test(companyName)) {
+      return 'Company name should not contain consecutive spaces.';
+    }
+    if (!/^[\w .'&-]*$/.test(companyName)) {
+      return 'Company name can only contain letters, digits, and special characters (.\'&-).';
     }
     if (companyName.trim().length < 3) {
       return 'Company name should be at least three characters long.';
@@ -315,7 +324,11 @@ const [employerPasswordError, setEmployerPasswordError] = useState('');
       'tutanota.com',
     ];
     const domain = email.split('@')[1];
-    if (excludedDomains.includes(domain)) {
+    if (!email.includes('@')) {
+      return 'Please enter a valid email.';
+    }
+
+    if (!excludedDomains.includes(domain)) {
       return 'Please enter your official email ID.';
     }
     return '';

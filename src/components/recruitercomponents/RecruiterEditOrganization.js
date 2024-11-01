@@ -25,6 +25,16 @@ function RecruiterEditOrganization() {
     },
   });
 
+  const [headOffice, setHeadOffice] = useState('');
+  const [twitter, setTwitter] = useState('');
+  const [instagram, setInstagram] = useState('');
+  const [youtube, setYoutube] = useState('');
+  const [linkedin, setLinkedin] = useState(''); 
+  const [companyName, setCompanyName] = useState('');
+    const [website, setWebsite] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [aboutCompany, setAboutCompany] = useState('');
   const [photoFile, setPhotoFile] = useState(null);
   const [imageSrc, setImageSrc] = useState('');
   const [token, setToken] = useState('');
@@ -132,6 +142,38 @@ function RecruiterEditOrganization() {
   const handleInputChange = (e) => {
     const { id, value } = e.target;
 
+    switch (id) {
+      case 'companyName':
+        setProfile({ ...profile, companyName: value });
+        break;
+      case 'phoneNumber':
+        setProfile({ ...profile, phoneNumber: value });
+        break;
+      case 'email':
+        setProfile({ ...profile, email: value });
+        break;
+      case 'website':
+        const websiteRegex = /\.(com|in|org)$/;
+        const isValidWebsite = websiteRegex.test(value);
+  
+        setProfile({ ...profile, website: value });
+  
+        if (!isValidWebsite) {
+          setFormErrors({ ...formErrors, website: 'Website should end with .com, .in, or .org' });
+        } else {
+          setFormErrors({ ...formErrors, website: '' });
+        }
+        break;
+      case 'headOffice':
+        setProfile({ ...profile, headOffice: value });
+        break;
+      case 'aboutCompany':
+        setProfile({ ...profile, aboutCompany: value });
+        break;
+      // Handle other input fields
+      default:
+        break;
+      }
     if (['twitter', 'instagram', 'youtube', 'linkedin'].includes(id)) {
       setProfile((prevProfile) => ({
         ...prevProfile,
@@ -406,7 +448,7 @@ const urlPattern = new RegExp(
                               placeholder="ABC Company Pvt. Ltd"
                               value={profile.companyName}
                               onChange={handleInputChange}
-                              required
+                              
                             />
                             {formErrors.companyName && (
                               <div className="error-message">{formErrors.companyName}</div>
@@ -463,7 +505,7 @@ const urlPattern = new RegExp(
                               placeholder="www.abc.com"
                               value={profile.website}
                               onChange={handleInputChange}
-                              required
+                              
                             />
                             {formErrors.website && (
                               <div className="error-message">{formErrors.website}</div>
@@ -509,7 +551,7 @@ const urlPattern = new RegExp(
                                   className="textarea"
                                   value={profile.aboutCompany}
                                   onChange={handleInputChange}
-                                  required
+                                  
                                   style={{
                                     borderRadius: '8px',
                                     border: '1px solid #E5E5E5',

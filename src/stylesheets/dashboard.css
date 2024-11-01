@@ -250,7 +250,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 25px;
-    padding-bottom: 16px;
+    padding-bottom: 0px;
 }
 
 
@@ -481,9 +481,10 @@
     display: inline-block;
     border-radius: 8px;
     text-align: center;
-    margin-top: 16px;
-    width: 127px;
-    height: 47px;
+    width:120px;
+    height: 45px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -1949,8 +1950,15 @@ tbody tr td:nth-child(2) {
 
 .flat-dashboard-setting .profile-setting {
     padding: 20px 20px 20px;
-    /* padding: 0px; */
     border-radius: 15px;
+    /* Default styles for smaller screens */
+}
+
+/* For screens above 1440px, apply width: min-content */
+@media (min-width: 1441px) {
+  .flat-dashboard-setting .profile-setting {
+    width:1026px; /* Set the width to min-content */
+  }
 }
 
 .flat-dashboard-setting .profile-setting-left {
@@ -4759,7 +4767,7 @@ input[type="radio"]:checked:after {
     }
 
     .left-menu {
-        z-index: 100;
+        z-index: 50;
         display: block !important;
         background: #fff;
         position: fixed;
@@ -5195,7 +5203,7 @@ input[type="radio"]:checked:after {
 }
 
 .color-icon-2 {
-    background: rgba(255, 102, 51, 0.10);
+    background:rgba(39, 118, 237, 0.10);
 }
 
 .color-icon-3 {
@@ -5341,13 +5349,14 @@ input[type="radio"]:checked:after {
 
     .resumecard .resumecard-button {
         order: 4;
+        
     }
 }
 
 .resumecard {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: space-between;
+    /* align-items: center; */
 }
 
 .resumecard-content {
@@ -5402,13 +5411,13 @@ input[type="radio"]:checked:after {
 
 @media only screen and (min-width: 1132px) and (max-width: 1300px){
 .resumecard-heading .heading1 {
-    padding-top:15px !important;
+    padding-top:10px !important;
 }
 }
 
 @media only screen and (min-width: 1423px) and (max-width: 1540px){
     .resumecard-heading .heading1 {
-        padding-top:15px !important;
+        padding-top:10px !important;
     }
     }
 
@@ -5516,7 +5525,7 @@ line-height: 25px;
     .title-count {
     margin-left:0px;
       font-size: 12px !important;
-      line-height: 1.5 !important;
+      line-height: 1.2 !important;
     }
   }
 

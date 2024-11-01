@@ -4466,9 +4466,24 @@
   margin-left: -32px;
 }
 
-.group-col-2 .cl2 {
-  width: calc(50% - 32px);
-  margin-left: 32px;
+/* Apply the styles for screens 1440px and below */
+@media (max-width: 1440px) {
+  .group-col-2 .cl2 {
+    width: calc(50% - 32px);
+    margin-left: 32px;
+  }
+}
+
+/* Fix the width of the cards for screens above 1440px */
+@media (min-width: 1441px) {
+  .group-col-2 .cl2 {
+    width: auto; /* Set a fixed width for the cards */
+    margin-left: 32px; /* Keep the margin or adjust as needed */
+  }
+
+  .group-col-2 {
+    justify-content: left; /* Center the group if needed */
+  }
 }
 
 .button-filter.st2 {

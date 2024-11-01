@@ -149,15 +149,15 @@ const RecruiterViewOrganization = () => {
                       <div className="author-details">
                         <div className="img-box relative">
                           <img
-                            width="100px"
-                            height="100px"
+                            width="70px"
+                            height="70px"
                             src={imageSrc || '../images/user/avatar/profile-pic.png'}
                             alt="Profile"
                             onError={() => setImageSrc('../images/user/avatar/profile-pic.png')}
-                            style={{ borderRadius: '100%', width: '100px', height: '100px' }}
+                            style={{ borderRadius: '100%', width: '70px', height: '70px',marginTop: '-12px',marginLeft:'15px'}}
                           />
                         </div>
-                        <div className="author-info">
+                        <div className="author-info" style={{marginLeft:'10px'}}>
                           <h2>
                           <span style={{color:'var(--Gray-700, #495057)',fontFamily: "Plus Jakarta Sans",
 fontSize: '24px',fontStyle: 'normal',fontWeight: 'bold'}}> {companyName}</span>
@@ -176,7 +176,7 @@ fontSize: '24px',fontStyle: 'normal',fontWeight: 'bold'}}> {companyName}</span>
 </clipPath>
 </defs>
 </svg>&nbsp;&nbsp;<span style={{color:'var(--Gray-700, #495057)',fontFamily: "Plus Jakarta Sans",
-fontSize: '16px',fontStyle: 'normal',fontWeight: '400'}}> {website}</span>
+fontSize: '16px',fontStyle: 'normal',fontWeight: '400',marginTop:'-5px'}}> {website}</span>
                             </a>
                           )}
                           {headOffice && (
@@ -191,8 +191,8 @@ fontSize: '16px',fontStyle: 'normal',fontWeight: '400'}}> {website}</span>
       <rect width="16" height="16" fill="white" transform="translate(0.15625 0.167725)"/>
     </clipPath>
   </defs>
-</svg>&nbsp;&nbsp;<span style={{color:'var(--Gray-700, #495057)',fontFamily: "Plus Jakarta Sans",
-fontSize: '16px',fontStyle: 'normal',fontWeight: '400'}}> {headOffice}</span>
+</svg>&nbsp;&nbsp;<div style={{color:'var(--Gray-700, #495057)',fontFamily: "Plus Jakarta Sans",
+fontSize: '16px',fontStyle: 'normal',fontWeight: '400',}}> {headOffice}</div>
                             </p>
                           )}
                         </div>
